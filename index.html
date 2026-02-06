@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春节祝福语生成器 - iFlow CLI 新春创造营</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="lantern lantern-left"></div>
+      <h1>春节祝福语生成器</h1>
+      <div class="lantern lantern-right"></div>
+    </header>
+    
+    <main>
+      <div class="category-selector">
+        <button class="category-btn active" data-category="newYear">拜年</button>
+        <button class="category-btn" data-category="career">职场</button>
+        <button class="category-btn" data-category="family">亲情</button>
+        <button class="category-btn" data-category="love">爱情</button>
+        <button class="category-btn" data-category="funny">趣味</button>
+      </div>
+      
+      <div class="blessing-card">
+        <div class="blessing-text" id="blessingText">
+          点击下方按钮，生成你的专属祝福！
+        </div>
+        <div class="blessing-tags" id="blessingTags"></div>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="btn-generate" id="generateBtn">
+          <span class="btn-icon">🎉</span>
+          生成祝福
+        </button>
+        <button class="btn-copy" id="copyBtn">
+          <span class="btn-icon">📋</span>
+          复制祝福
+        </button>
+      </div>
+    </main>
+    
+    <footer>
+      <p>© 2026 iFlow CLI 新春创造营 | 用AI点亮年味</p>
+    </footer>
+  </div>
+  
+  <div class="toast" id="toast"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

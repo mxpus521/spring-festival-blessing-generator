@@ -1,0 +1,431 @@
+/* CSS变量定义 */
+:root {
+  /* 主色调 - 中国红 */
+  --color-primary: #C8102E;
+  --color-primary-dark: #8B0000;
+  --color-primary-light: #E60026;
+  
+  /* 辅助色 - 金色 */
+  --color-gold: #D4AF37;
+  --color-gold-light: #FFD700;
+  --color-gold-dark: #B8860B;
+  
+  /* 背景色 */
+  --color-bg-start: #8B0000;
+  --color-bg-end: #C8102E;
+  
+  /* 文字色 */
+  --color-text-primary: #FFFFFF;
+  --color-text-gold: #FFD700;
+  
+  /* 强调色 */
+  --color-accent: #FFF200;
+}
+
+/* 基础重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* 容器 */
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 40px 30px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+}
+
+/* 灯笼样式 */
+.lantern {
+  width: 60px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #FF6B6B, #C8102E);
+  border-radius: 50% 50% 45% 45%;
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 0 20px rgba(200, 16, 46, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  animation: swing 3s ease-in-out infinite;
+  position: relative;
+}
+
+.lantern::before {
+  /* 顶部挂钩 */
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lantern::after {
+  /* 底部流苏 */
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 25px;
+  background: linear-gradient(to bottom, var(--color-gold), var(--color-gold-light), var(--color-gold));
+  border-radius: 0 0 10px 10px;
+}
+
+.lantern-left {
+  animation-delay: 0s;
+}
+
+.lantern-right {
+  animation-delay: 1.5s;
+}
+
+/* Main */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* 主题选择器 */
+.category-selector {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  flex: 1;
+  min-width: 80px;
+  max-width: 100px;
+  padding: 12px 16px;
+  border: 2px solid var(--color-primary);
+  background: white;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+}
+
+.category-btn.active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4);
+}
+
+/* 祝福卡片 */
+.blessing-card {
+  background: linear-gradient(135deg, #FFF9E6, #FFF);
+  border: 3px solid var(--color-gold);
+  border-radius: 15px;
+  padding: 30px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.blessing-text {
+  font-size: 1.4rem;
+  color: var(--color-primary-dark);
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.blessing-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  background: var(--color-gold);
+  color: var(--color-primary-dark);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-generate, .btn-copy {
+  flex: 1;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-generate {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.btn-generate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.5);
+}
+
+.btn-generate:active {
+  transform: translateY(0);
+}
+
+.btn-copy {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  color: var(--color-primary-dark);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-copy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.btn-copy:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Toast 提示 */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: #333;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.toast-success {
+  background: #4CAF50;
+}
+
+.toast-warning {
+  background: #FF9800;
+}
+
+.toast-error {
+  background: #F44336;
+}
+
+/* 动画定义 */
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(200, 16, 46, 0.7);
+  }
+}
+
+/* 响应式设计 - 平板 */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  .lantern {
+    width: 50px;
+    height: 60px;
+  }
+  
+  .category-selector {
+    gap: 8px;
+  }
+  
+  .category-btn {
+    min-width: 70px;
+    max-width: 90px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .blessing-text {
+    font-size: 1.2rem;
+  }
+  
+  .btn-generate, .btn-copy {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* 响应式设计 - 手机 */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+  
+  .container {
+    padding: 25px 15px;
+  }
+  
+  header {
+    margin-bottom: 25px;
+  }
+  
+  h1 {
+    font-size: 1.4rem;
+    margin: 0 15px;
+  }
+  
+  .lantern {
+    width: 40px;
+    height: 50px;
+  }
+  
+  .lantern::before {
+    width: 16px;
+    height: 16px;
+    top: -12px;
+  }
+  
+  .lantern::after {
+    width: 12px;
+    height: 20px;
+    bottom: -20px;
+  }
+  
+  .category-btn {
+    min-width: 60px;
+    max-width: 80px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .blessing-card {
+    padding: 25px 20px;
+    min-height: 180px;
+  }
+  
+  .blessing-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-generate, .btn-copy {
+    width: 100%;
+  }
+  
+  footer {
+    font-size: 0.8rem;
+  }
+}
